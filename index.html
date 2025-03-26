@@ -8,37 +8,23 @@
     body {
       font-family: Arial, sans-serif;
       background: #f9f9f9;
-      margin: 0;
-      padding: 0;
       text-align: center;
+      padding: 30px;
     }
 
     header {
       background-color: #d90000;
       color: white;
-      padding: 20px 0;
+      padding: 20px;
       font-size: 24px;
       font-weight: bold;
     }
 
-    .container {
-      margin-top: 50px;
-    }
-
-    h1 {
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: #666;
-      margin-bottom: 30px;
-    }
-
-    input[type="text"] {
+    input {
       padding: 10px;
       width: 250px;
       font-size: 16px;
+      margin-top: 30px;
       border: 1px solid #ccc;
       border-radius: 8px;
     }
@@ -49,73 +35,9 @@
       background-color: #d90000;
       color: white;
       border: none;
-      font-size: 16px;
       border-radius: 8px;
+      font-size: 16px;
       cursor: pointer;
     }
 
-    button:hover {
-      background-color: #b30000;
-    }
-
-    .success-message {
-      margin-top: 20px;
-      color: green;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    Recharge Kuwait
-  </header>
-
-  <div class="container">
-    <h1>اشحن رصيد Ooredoo الكويت</h1>
-    <p>أدخل رقم هاتفك لبدء عملية الشحن بسهولة وسرعة</p>
-    <input type="text" id="phone" placeholder="أدخل رقم الهاتف" />
-    <br />
-    <button onclick="submitPhone()">Recharge Now</button>
-    <div class="success-message" id="successMsg"></div>
-  </div>
-
-  <script>
-    function submitPhone() {
-      const phone = document.getElementById("phone").value;
-      if (!phone) {
-        alert("يرجى إدخال رقم الهاتف");
-        return;
-      }
-
-      // رابط الإرسال الخاص بنموذج Google Form
-      const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSe4MJk5KljgXra28UAWczm8ujsiUukYvAkIDAjSdJGzqXiB6g/formResponse";
-
-      // اسم الحقل الخاص برقك الهاتف (من النموذج)
-      const phoneFieldName = "entry.1000889343";
-
-      // تجهيز البيانات
-      const formData = new FormData();
-      formData.append(phoneFieldName, phone);
-
-      // إرسال البيانات
-      fetch(formURL, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
-      }).then(() => {
-        document.getElementById("successMsg").innerText = "تم إرسال الرقم بنجاح ✅";
-        document.getElementById("phone").value = "";
-      });
-    }
-  </script>
-</body>
-</html>
-const firebaseConfig = {
-  apiKey: "AIzaSyA...xyz",
-  authDomain: "sample-firebase-ai-app1.firebaseapp.com",
-  databaseURL: "https://sample-firebase-ai-app1-28d57-default-rtdb.firebaseio.com",
-  projectId: "sample-firebase-ai-app1",
-  storageBucket: "sample-firebase-ai-app1.appspot.com",
-  messagingSenderId: "1234567890",
-  appId: "1:1234567890:web:abc123"
-};
+    .message {
