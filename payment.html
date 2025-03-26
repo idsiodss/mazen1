@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختر طريقة الدفع</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #d90000;
+    }
+
+    .payment-options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .option {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      width: 220px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .option:hover {
+      transform: scale(1.05);
+    }
+
+    .option img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+
+    .option-title {
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>اختر طريقة الدفع</h1>
+  <div class="payment-options">
+    <div class="option" onclick="alert('سيتم تحويلك إلى بوابة فيزا/ماستر كارد')">
+      <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Visa">
+      <div class="option-title">بطاقة فيزا / ماستر كارد</div>
+    </div>
+
+    <div class="option" onclick="alert('سيتم تحويلك إلى STC Pay')">
+      <img src="https://cdn-icons-png.flaticon.com/512/888/888870.png" alt="STC Pay">
+      <div class="option-title">STC Pay</div>
+    </div>
+
+    <div class="option" onclick="alert('تم اختيار الدفع عند الاستلام')">
+      <img src="https://cdn-icons-png.flaticon.com/512/633/633611.png" alt="Cash">
+      <div class="option-title">الدفع عند الاستلام</div>
+    </div>
+
+    <div class="option" onclick="alert('سيتم عرض بيانات الحوالة البنكية')">
+      <img src="https://cdn-icons-png.flaticon.com/512/483/483947.png" alt="Bank">
+      <div class="option-title">حوالة بنكية</div>
+    </div>
+  </div>
+</body>
+</html>
